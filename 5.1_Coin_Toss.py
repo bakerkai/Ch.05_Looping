@@ -7,13 +7,19 @@ COIN TOSS PROGRAM
 4.) Create a running total for the number of heads and the number of tails and print the total at the end.
 '''
 import random
-heads += 0
-my_number = random.randrange(1, 3)
-#if my_number == 1:
 
-print(my_number)
-
-
+heads = 0
+tails = 0
+num = 0
+for i in range(0,50):
+    num = random.randint(1,2)
+    if num == 1:
+        tails += 1
+        print("Tails")
+    else:
+        heads += 1
+        print("Head")
+print("Heads =", heads, "Tails =", tails )
 
 
 
