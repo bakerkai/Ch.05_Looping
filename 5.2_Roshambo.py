@@ -10,11 +10,32 @@ Add conditional statements to figure out who wins and keep the records
 When the user quits print a win/loss record
 
 '''
+import random
 
 
+userinput = input("What is your bet?")
+
+for i in range(1):
+    num = random.randint(1,2,3)
+    if num == 1 and userinput == 'Scissors': #Computer says rock
+        print("You Lose!")
+    elif num == 1 and userinput == 'Paper':
+        print("You win!")
+
+    elif num == 2 and userinput == 'Rock': #Computer says paper
+        print("You Lose!")
+    elif num == 2 and userinput == 'Scissors':
+        print("You win!")
+
+    elif num == 3 and userinput == 'Paper': #Computer says Skizzors
+        print("You Lose!")
+    elif num == 3 and userinput == 'Rock':
+        print("You win!")
 
 
-
+quit_game = input("In order to quit Type Y or N")
+if quit_game == 'Y':
+    quit()
 
 
 
