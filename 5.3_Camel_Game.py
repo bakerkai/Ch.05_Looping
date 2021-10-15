@@ -9,7 +9,7 @@ import random
 #variables set
 
 done = False
-alive = True
+#alive = True
 
 print("Welcome to the camel game (totally not a copy)")
 print("You and your camel are running from natives in the desert")
@@ -26,13 +26,17 @@ healthdecrease = random.randint(5,15)
 randomrunrandomwolf = random.randint(5,15)
 randomrun = random.randint(5,15)
 sleepheal = int(10)
+randomwalk = random.randint(5,10)
+easyhealthdecrease = random.randint(99,100)
 
 #start of sequence
 if wolfdistance == 0:
-    alive = False
+    done = False
+if health <= 0:
+    done = True
 while not done:
     print("What do you want to do?")
-    userinput = input("Do you want to, A: check status, B: Sleep, C: Eat, D: Sprint till ya cant no more, E: Moderate walk")
+    userinput = input("Do you want to, A: check status, B: Sleep, C: Eat, D: Sprint till ya cant no more, E: Moderate walk,")
     if userinput == 'A':
         print(status)
     elif userinput == 'C':
@@ -41,14 +45,24 @@ while not done:
         food -= 1
     elif userinput == 'D':
         print("You have ran",randomrun, "mile away from the wolves.The wolves have advanced by", randomrunrandomwolf, "Your health has decreased by", healthdecrease)
+        wolfdistance = wolfdistance + randomrun
+        wolfdistance = wolfdistance - randomrunrandomwolf
+        health = health - healthdecrease
     elif userinput == 'B':
         print("You have decided to stay and sleep. Your health increased by", sleepheal, " However the wolves have advanced by", randomrunrandomwolf)
+        health = health + sleepheal
+        wolfdistance = wolfdistance - randomrunrandomwolf
+    elif userinput == 'E':
+        print("You have ran", randomwalk, "This was a easy run so you only lost", easyhealthdecrease, "Health")
+        health = health - easyhealthdecrease
 
 
 
 '''
 CURRENT BUGS:
 Need random number removals (EX health) to actually apply 
+Random.randint(X,X) selections are not applied correctly (not a random num)
+Program does not quit when health is below 0
 '''
 
 
