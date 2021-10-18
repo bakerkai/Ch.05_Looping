@@ -17,32 +17,29 @@ print("You only have a certain range of miles you can travel without food and wa
 
 #setting attributes
 foodamt = random.randint(10,15)
-health = int(20)
-status = print(health,"Health", foodamt,"Food")
-food = int(10)
 health = int(50)
 wolfdistance = int(50)
-healthdecrease = random.randint(5,15)
-randomrunrandomwolf = random.randint(5,15)
-randomrun = random.randint(5,15)
+healthdecrease = random.randint(5, 15)
+randomrunrandomwolf = random.randint(5, 15)
+randomrun = random.randint(5, 15)
 sleepheal = int(10)
-randomwalk = random.randint(5,10)
-easyhealthdecrease = random.randint(99,100)
-
+randomwalk = random.randint(5, 10)
+easyhealthdecrease = random.randint(99, 100)
 #start of sequence
 if wolfdistance == 0:
-    done = False
+    done = True
 if health <= 0:
+    print("You have died. Get good kid. I'm not even gonna let you end it yourself. Nerd.")
     done = True
 while not done:
     print("What do you want to do?")
-    userinput = input("Do you want to, A: check status, B: Sleep, C: Eat, D: Sprint till ya cant no more, E: Moderate walk,")
+    userinput = input("Do you want to, A: check status, B: Sleep, C: Eat, D: Sprint till ya cant no more, E: Moderate walk, Q: Quit game")
     if userinput == 'A':
-        print(status)
+        print("Health", health, "Food", foodamt)
     elif userinput == 'C':
         print("You have eaten food, your health has increased.")
         health += 10
-        food -= 1
+        foodamt -= 1
     elif userinput == 'D':
         print("You have ran",randomrun, "mile away from the wolves.The wolves have advanced by", randomrunrandomwolf, "Your health has decreased by", healthdecrease)
         wolfdistance = wolfdistance + randomrun
@@ -55,6 +52,8 @@ while not done:
     elif userinput == 'E':
         print("You have ran", randomwalk, "This was a easy run so you only lost", easyhealthdecrease, "Health")
         health = health - easyhealthdecrease
+    elif userinput == 'Q':
+        quit()
 
 
 
@@ -63,6 +62,12 @@ CURRENT BUGS:
 Need random number removals (EX health) to actually apply 
 Random.randint(X,X) selections are not applied correctly (not a random num)
 Program does not quit when health is below 0
+add way to eat food
+sleep night 
+direct quit command 
+needs finish line 
+just add more things in general to it to make it more usable 
+add a warning if they get close 
 '''
 
 
