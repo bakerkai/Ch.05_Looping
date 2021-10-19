@@ -29,9 +29,9 @@ distancefromhome = 50
 hungerdecrease = random.randint(5, 10)
 foodscavange = random.randint(0, 5)
 #start of sequence
-if wolfdistance == 0:
+if wolfdistance <= int(0):
     done = True
-if health <= 0:
+if health <= int(0):
     print("You have died. Get good kid. I'm not even gonna let you end it yourself. Nerd.")
     done = True
 while not done:
@@ -63,10 +63,20 @@ while not done:
         print("You have chosen to scavange for food. Whilst doing this the wolves advanced by", randomrunrandomwolf, "But you have gotten", )
         wolfdistance = wolfdistance - randomrunrandomwolf
         foodamt = foodamt + foodscavange
-    if wolfdistance <= 20:
-        print("WARNING the hungry dogs are getting close")
+    if wolfdistance <= 50:
+        print("\033[1;31;48m", "WARNING the hungry dogs are getting close") #red
     if distancefromhome <= 20:
         print("WARN- oops i meant good job you are close to home! keep going")
+
+#  "\033[1;31;48m" Red
+#  "\033[1;32;48m" Green
+#  "\033[1;33;48m" Yellow
+#  "\033[1;34;48m" Blue
+#  "\033[1;35;48m" Purple
+#  "\033[1;36;48m" Cyan
+
+
+
 
 
 
