@@ -67,8 +67,10 @@ while health >= 0 and wolfdistance >= 0:
         print("\033[1;31;48m", "WARNING the hungry dogs are getting close") #red
     if distancefromhome <= 10:
         print("WARN- oops i meant good job you are close to home! keep going")
-if distancefromhome <0:
+if distancefromhome <= 0:
     print("Congratulations! You have made it home alive!")
+if wolfdistance <= 0:
+    print("The wolves have ate you ")
 
 #  "\033[1;31;48m" Red
 #  "\033[1;32;48m" Green
