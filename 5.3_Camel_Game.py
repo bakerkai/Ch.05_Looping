@@ -18,16 +18,16 @@ print("You must reach your house before the wolves catch you. ")
 #setting attributes
 foodamt = random.randint(10,15)
 health = int(50)
-wolfdistance = int(50)
-healthdecrease = random.randint(5, 15)
-randomrunrandomwolf = random.randint(5, 10)
-randomrun = random.randint(10, 15)
+wolfdistance = int(40)
+healthdecrease = random.randint(10, 15)
+randomrunrandomwolf = random.randrange(5, 10)
+randomrun = random.randrange(10, 15)
 sleepheal = int(10)
-randomwalk = random.randint(5, 7)
-easyhealthdecrease = random.randint(5, 10)
+randomwalk = random.randrange(5, 7)
+easyhealthdecrease = random.randrange(5, 10)
 distancefromhome = 50
-hungerdecrease = random.randint(5, 10)
-foodscavange = random.randint(0, 5)
+hungerdecrease = random.randrange(5, 10)
+foodscavange = random.randrange(0, 5)
 #start of sequence
 #if wolfdistance <= int(0):
     #done = True
@@ -35,32 +35,32 @@ foodscavange = random.randint(0, 5)
     #print("You have died. Get good kid. I'm not even gonna let you end it yourself. Nerd.")
     #done = True
 while health >= 0 and wolfdistance >= 0:
-    print("What do you want to do?")
-    userinput = str(input("Do you want to,\nA: check status, \nB: Sleep, \nC: Eat, \nD: Sprint till ya cant no more, \nE: Moderate walk, \nQ: Quit game, \nX:Scavange for food"))
+    print("\033[1;32;48m""What do you want to do?")
+    userinput = str(input("\033[1;32;48m" "Do you want to,\nA: check status, \nB: Sleep, \nC: Eat, \nD: Sprint till ya cant no more, \nE: Moderate walk, \nQ: Quit game, \nX:Scavange for food"))
     if userinput == 'A':
-        print("Health", health, "Food", foodamt)
+        print("\033[1;34;48m" "Health", health, "Food", foodamt)
     elif userinput == 'C':
-        print("You have eaten food, your health has increased.")
+        print("\033[1;34;48m" "You have eaten food, your health has increased.")
         health += 10
         foodamt -= 2
     elif userinput == 'D':
-        print("You have ran",randomrun, "mile away from the wolves.The wolves have advanced by", randomrunrandomwolf, "Your health has decreased by", healthdecrease)
+        print("\033[1;34;48m" "You have ran",randomrun, "mile away from the wolves.The wolves have advanced by", randomrunrandomwolf, "Your health has decreased by", healthdecrease)
         wolfdistance = wolfdistance + randomrun
         wolfdistance = wolfdistance - randomrunrandomwolf
         health = health - healthdecrease
         distancefromhome = distancefromhome - randomrun
         foodamt = foodamt - hungerdecrease
     elif userinput == 'B':
-        print("You have decided to stay and sleep. Your health increased by", sleepheal, " However the wolves have advanced by", randomrunrandomwolf)
+        print("\033[1;34;48m" "You have decided to stay and sleep. Your health increased by", sleepheal, " However the wolves have advanced by", randomrunrandomwolf)
         health = health + sleepheal
         wolfdistance = wolfdistance - randomrunrandomwolf
     elif userinput == 'E':
-        print("You have ran", randomwalk, "This was a easy run so you only lost", easyhealthdecrease, "Health")
+        print("\033[1;34;48m" "You have ran", randomwalk, "This was a easy run so you only lost", easyhealthdecrease, "Health")
         health = health - easyhealthdecrease
     elif userinput == 'Q':
         quit()
     elif userinput == 'X':
-        print("You have chosen to scavange for food. Whilst doing this the wolves advanced by", randomrunrandomwolf, "But you have gotten", )
+        print("\033[1;34;48m" "You have chosen to scavange for food. Whilst doing this the wolves advanced by", randomrunrandomwolf, "But you have gotten", )
         wolfdistance = wolfdistance - randomrunrandomwolf
         foodamt = foodamt + foodscavange
     if wolfdistance <= 10:
