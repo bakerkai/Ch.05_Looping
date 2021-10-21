@@ -8,7 +8,7 @@ import random
 
 #variables set
 
-done = False
+#done = False
 #alive = True
 
 print("Welcome to the camel game (totally not a copy)")
@@ -20,29 +20,29 @@ foodamt = random.randint(10,15)
 health = int(50)
 wolfdistance = int(50)
 healthdecrease = random.randint(5, 15)
-randomrunrandomwolf = random.randint(5, 15)
+randomrunrandomwolf = random.randint(5, 10)
 randomrun = random.randint(10, 15)
 sleepheal = int(10)
-randomwalk = random.randint(5, 10)
-easyhealthdecrease = random.randint(99, 100)
+randomwalk = random.randint(5, 7)
+easyhealthdecrease = random.randint(5, 10)
 distancefromhome = 50
 hungerdecrease = random.randint(5, 10)
 foodscavange = random.randint(0, 5)
 #start of sequence
-if wolfdistance <= int(0):
-    done = True
-if health <= int(0):
-    print("You have died. Get good kid. I'm not even gonna let you end it yourself. Nerd.")
-    done = True
-while not done:
+#if wolfdistance <= int(0):
+    #done = True
+#if health <= int(0):
+    #print("You have died. Get good kid. I'm not even gonna let you end it yourself. Nerd.")
+    #done = True
+while health >= 0 and wolfdistance >= 0:
     print("What do you want to do?")
-    userinput = str(input("Do you want to, A: check status, B: Sleep, C: Eat, D: Sprint till ya cant no more, E: Moderate walk, Q: Quit game, X:Scavange for food"))
+    userinput = str(input("Do you want to,\nA: check status, \nB: Sleep, \nC: Eat, \nD: Sprint till ya cant no more, \nE: Moderate walk, \nQ: Quit game, \nX:Scavange for food"))
     if userinput == 'A':
         print("Health", health, "Food", foodamt)
     elif userinput == 'C':
         print("You have eaten food, your health has increased.")
         health += 10
-        foodamt -= 1
+        foodamt -= 2
     elif userinput == 'D':
         print("You have ran",randomrun, "mile away from the wolves.The wolves have advanced by", randomrunrandomwolf, "Your health has decreased by", healthdecrease)
         wolfdistance = wolfdistance + randomrun
@@ -63,10 +63,12 @@ while not done:
         print("You have chosen to scavange for food. Whilst doing this the wolves advanced by", randomrunrandomwolf, "But you have gotten", )
         wolfdistance = wolfdistance - randomrunrandomwolf
         foodamt = foodamt + foodscavange
-    if wolfdistance <= 50:
+    if wolfdistance <= 10:
         print("\033[1;31;48m", "WARNING the hungry dogs are getting close") #red
-    if distancefromhome <= 20:
+    if distancefromhome <= 10:
         print("WARN- oops i meant good job you are close to home! keep going")
+if distancefromhome <0:
+    print("Congratulations! You have made it home alive!")
 
 #  "\033[1;31;48m" Red
 #  "\033[1;32;48m" Green
@@ -85,8 +87,6 @@ CURRENT BUGS:
 Need random number removals (EX health) to actually apply -  done
 Program does not quit when health is below 0
 needs finish line 
-just add more things in general to it to make it more usable 
-add a warning if they get close 
 '''
 
 
