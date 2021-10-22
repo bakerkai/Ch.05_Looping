@@ -18,10 +18,11 @@ print("You must reach your house before the wolves catch you. ")
 print("You are a very hungry person for no reason at all so make sure to check your food very often.")
 #setting attributes
 foodamt = int(10)
-health = int(50)
+health = int(30)
 wolfdistance = int(40)
 sleepheal = int(10)
-distancefromhome = 50
+distancefromhome = int(50)
+randomevent = random.randint(0, 1)
 #start of sequence
 #if wolfdistance <= int(0):
     #done = True
@@ -38,7 +39,7 @@ while health >= 0 and wolfdistance >= 0:
         health += 10
         foodamt -= 2
     elif userinput == 'D':
-        print("\033[1;34;48m" "You have ran",random.randint(5, 10), "miles away from the wolves. But the wolves have advanced by", random.randint(10, 15), "Miles. Your health has decreased by", random.randint(10, 15), "However you have lost", random.randint(0, 5), " Health")
+        print("\033[1;34;48m" "You have ran",random.randint(5, 15), "miles away from the wolves. But the wolves have advanced by", random.randint(10, 15), "Miles. Your health has decreased by", random.randint(10, 15), "However you have lost", random.randint(0, 5), " food")
         wolfdistance = wolfdistance + random.randint(5, 15)
         wolfdistance = wolfdistance - random.randint(10, 15)
         health = health - random.randint(5, 10)
@@ -63,10 +64,20 @@ while health >= 0 and wolfdistance >= 0:
         print("\033[1;31;48m", "WARNING the hungry dogs are getting close") #red
     if distancefromhome <= 10:
         print("WARN- oops i meant good job you are close to home! keep going")
+    if distancefromhome <= 20 and randomevent == 1:
+        print("You have found a 6 foot deep hole but you are only 2 feet tall. But there is a ladder however it is old and crusty")
+        userchoice = str(input("Do you want to go into the ladder? \n Y \n or \n N"))
+        if userchoice == 'Y':
+            print("You decided to go in. The ladder held up because it was crusty iron and you found 20 food!")
+            food = food + 20
+        if userchoice == 'N':
+            print("You took the easy way... was it worth it though?")
+
 if distancefromhome <= 0:
     print("Congratulations! You have made it home alive!")
 if wolfdistance <= 0:
-    print("The wolves have ate you ")
+    print("The wolves have ate you")
+    print("lmao that bozo sucked, we weren't every trying")
 
 #  "\033[1;31;48m" Red
 #  "\033[1;32;48m" Green
@@ -82,9 +93,6 @@ if wolfdistance <= 0:
 
 '''
 CURRENT BUGS:
-Need random number removals (EX health) to actually apply -  done
-Program does not quit when health is below 0
-needs finish line 
 '''
 
 
