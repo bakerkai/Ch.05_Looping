@@ -69,7 +69,7 @@ while health >= 0 and wolfdistance >= 0:
         userchoice = str(input("Do you want to go into the ladder? \n Y \n or \n N"))
         if userchoice == 'Y':
             print("You decided to go in. The ladder held up because it was crusty iron and you found 20 food!")
-            food = food + 20
+            foodamt = foodamt + 20
         if userchoice == 'N':
             print("You took the easy way... was it worth it though?")
 
