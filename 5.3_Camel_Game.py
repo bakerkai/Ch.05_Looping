@@ -12,22 +12,16 @@ import random
 #alive = True
 
 print("Welcome to the camel game (totally not a copy)")
-print("You and your camel are running from natives in the desert")
+print("You and your camel are running from wolves in the desert")
 print("You only have a certain range of miles you can travel without food and water, so be prepared and be smart.")
 print("You must reach your house before the wolves catch you. ")
+print("You are a very hungry person for no reason at all so make sure to check your food very often.")
 #setting attributes
-foodamt = random.randint(10,15)
+foodamt = int(10)
 health = int(50)
 wolfdistance = int(40)
-healthdecrease = random.randint(10, 15)
-randomrunrandomwolf = random.randrange(5, 10)
-randomrun = random.randrange(10, 15)
 sleepheal = int(10)
-randomwalk = random.randrange(5, 7)
-easyhealthdecrease = random.randrange(5, 10)
 distancefromhome = 50
-hungerdecrease = random.randrange(5, 10)
-foodscavange = random.randrange(0, 5)
 #start of sequence
 #if wolfdistance <= int(0):
     #done = True
@@ -36,7 +30,7 @@ foodscavange = random.randrange(0, 5)
     #done = True
 while health >= 0 and wolfdistance >= 0:
     print("\033[1;32;48m""What do you want to do?")
-    userinput = str(input("\033[1;32;48m" "Do you want to,\nA: check status, \nB: Sleep, \nC: Eat, \nD: Sprint till ya cant no more, \nE: Moderate walk, \nQ: Quit game, \nX:Scavange for food"))
+    userinput = str(input("\033[1;32;48m" "Do you want to,\nA: check status, \nB: Sleep, \nC: Eat, \nD: Sprint till ya cant no more, \nE: Moderate walk, \nQ: Quit game, \nX: Scavange for food"))
     if userinput == 'A':
         print("\033[1;34;48m" "Health", health, "Food", foodamt)
     elif userinput == 'C':
@@ -44,25 +38,27 @@ while health >= 0 and wolfdistance >= 0:
         health += 10
         foodamt -= 2
     elif userinput == 'D':
-        print("\033[1;34;48m" "You have ran",randomrun, "mile away from the wolves.The wolves have advanced by", randomrunrandomwolf, "Your health has decreased by", healthdecrease)
-        wolfdistance = wolfdistance + randomrun
-        wolfdistance = wolfdistance - randomrunrandomwolf
-        health = health - healthdecrease
-        distancefromhome = distancefromhome - randomrun
-        foodamt = foodamt - hungerdecrease
+        print("\033[1;34;48m" "You have ran",random.randint(5, 10), "miles away from the wolves. But the wolves have advanced by", random.randint(10, 15), "Miles. Your health has decreased by", random.randint(10, 15), "However you have lost", random.randint(0, 5), " Health")
+        wolfdistance = wolfdistance + random.randint(5, 15)
+        wolfdistance = wolfdistance - random.randint(10, 15)
+        health = health - random.randint(5, 10)
+        distancefromhome = distancefromhome - random.randint(5, 10)
+        foodamt = foodamt - random.randint(0, 5)
     elif userinput == 'B':
-        print("\033[1;34;48m" "You have decided to stay and sleep. Your health increased by", sleepheal, " However the wolves have advanced by", randomrunrandomwolf)
+        print("\033[1;34;48m" "You have decided to stay and sleep. Your health increased by", sleepheal, " However the wolves have advanced by", random.randint(5,15), "miles.")
         health = health + sleepheal
-        wolfdistance = wolfdistance - randomrunrandomwolf
+        wolfdistance = wolfdistance - random.randint(5,15)
     elif userinput == 'E':
-        print("\033[1;34;48m" "You have ran", randomwalk, "This was a easy run so you only lost", easyhealthdecrease, "Health")
-        health = health - easyhealthdecrease
+        print("\033[1;34;48m" "You have ran", random.randint(5, 15), "miles. This was a easy run so you only lost", random.randint(5, 8), "Health.")
+        health = health - random.randint(5, 8)
+        distancefromhome = distancefromhome - random.randint(5, 10)
+        wolfdistance = wolfdistance - random.randint(5, 7)
     elif userinput == 'Q':
         quit()
     elif userinput == 'X':
-        print("\033[1;34;48m" "You have chosen to scavange for food. Whilst doing this the wolves advanced by", randomrunrandomwolf, "But you have gotten", )
-        wolfdistance = wolfdistance - randomrunrandomwolf
-        foodamt = foodamt + foodscavange
+        print("\033[1;34;48m" "You have chosen to scavange for food. Whilst doing this the wolves advanced by", random.randint(5,10), "miles. But you have gotten", random.randint(0, 4), "food.")
+        wolfdistance = wolfdistance - random.randint(5, 10)
+        foodamt = foodamt + random.randint(1, 4)
     if wolfdistance <= 10:
         print("\033[1;31;48m", "WARNING the hungry dogs are getting close") #red
     if distancefromhome <= 10:
