@@ -41,7 +41,7 @@ while health >= 0 and wolfdistance >= 0:
     elif userinput == 'D':
         print("\033[1;34;48m" "You have ran",random.randint(5, 15), "miles away from the wolves. But the wolves have advanced by", random.randint(10, 15), "Miles. Your health has decreased by", random.randint(10, 15), "However you have lost", random.randint(0, 5), " food")
         wolfdistance = wolfdistance + random.randint(5, 15)
-        wolfdistance = wolfdistance - random.randint(10, 15)
+        wolfdistance = wolfdistance - random.randint(10, 11)
         health = health - random.randint(5, 10)
         distancefromhome = distancefromhome - random.randint(5, 10)
         foodamt = foodamt - random.randint(0, 5)
